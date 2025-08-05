@@ -1,7 +1,0 @@
-Flask
-Flask-Cors
-PyPDF2
-docx2txt
-numpy
-scikit-learn
-spacy
