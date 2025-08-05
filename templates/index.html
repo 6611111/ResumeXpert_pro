@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResumeXpert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="bubble-background">
+    <canvas id="bubble-canvas"></canvas>
+    </div>
+
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <span class="logo"><span class="logo-blue">Resume</span><span class="logo-orange">Xpert</span></span>
+        </div>
+        <div class="navbar-center">
+            <a href="#">Resumes</a>
+            <a href="#">Cover Letters</a>
+            <a href="#">CVs</a>
+            <a href="#">Resources</a>
+        </div>
+        <div class="navbar-right">
+            <button class="login-btn">Login</button>
+        </div>
+    </nav>
+    <main class="main-section">
+        <section class="checker-section">
+            <div class="checker-left">
+                <h1>Scan   Score   Succeed</h1>
+                <p>
+                    Your dream job shouldn’t get lost in the system. Our AI-Powered ATS Resume Scanner helps you stand out by analyzing what really matters.
+                </p>
+                <form id="resume-form" enctype="multipart/form-data" onsubmit="return false;">
+                    <div class="upload-box" id="upload-box">
+                        <button type="button" id="check-score-btn" class="score-btn">Check your score</button>
+                        <input type="file" id="resume-input" accept=".pdf,.doc,.docx" hidden />
+                        <p>Drop to upload your resume or choose a file.<br>Max 5MB file size.</p>
+                        <div id="file-name"></div>
+                    </div>
+                </form>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="star">&#11088;</span>
+                        <span><b>Instant Resume Audit - </b>Uncover hidden issues blocking your resume</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="star">&#11088;</span>
+                        <span><b>Real-Time ATS Score - </b>Know where you stand in seconds</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="star">&#11088;</span>
+                        <span><b>Targeted Suggestions - </b>Optimize for the role you want</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="checker-right">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <img src="{{ url_for('static', filename='resume7.png') }}" alt="Resume Sample" />
+                        <img src="{{ url_for('static', filename='resume4.png') }}" alt="Resume Sample" />
+
+                        <img src="{{ url_for('static', filename='resume6.png') }}" alt="Resume Sample" />
+
+  
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section id="result-section" class="hidden">
+            <h2>Your Resume Score</h2>
+            <div class="charts-container">
+                <div class="chart-card">
+                    <canvas id="scoreChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <canvas id="sectionBarChart"></canvas>
+                </div>
+            </div>
+            <div id="job-suggestions"></div>
+        </section>
+    </main>
+</body>
+</html>
